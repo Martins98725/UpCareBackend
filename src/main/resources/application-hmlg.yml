@@ -1,0 +1,40 @@
+keycloak:
+  auth-server-url: https://keycloak.afcoding.com.br/auth
+  realm: mirante
+  ssl-required: none
+  resource: app-upcare
+  public-client: true
+  confidential-port: 0
+  bearer-only: true
+  enabled: true
+
+## OAUTH2 + SSO ##
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: app-upcare
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: https://keycloak.afcoding.com.br/realms/mirante
+            user-name-attribute: preferred_username
+
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.afcoding.com.br/realms/mirante
+
+api:
+  auth: https://keycloak.afcoding.com.br/
+
+logging:
+  level:
+    root: info
+    org.springframework.web: debug
+    org.springframework.security: debug
+    org.springframework.boot.autoconfigure: debug
+    org.springframework.web.reactive.function.client.ExchangeFunctions: debug

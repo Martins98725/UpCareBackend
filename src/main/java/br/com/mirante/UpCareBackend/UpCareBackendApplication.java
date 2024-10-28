@@ -1,0 +1,28 @@
+package br.com.mirante.UpCareBackend;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
+
+@OpenAPIDefinition(info = @io.swagger.v3.oas.annotations.info.Info(title = "${info.build.name}", version = "${info.build.version}", description = "${info.app.description}",
+		contact = @io.swagger.v3.oas.annotations.info.Contact(name = "Time Mirante", email = "contato@mirante.com.br")))
+@SecurityScheme(
+		name = "bearer-key",
+		type = SecuritySchemeType.HTTP,
+		bearerFormat = "JWT",
+		scheme = "bearer"
+)
+@ComponentScan("br.com.mirante")
+@EnableFeignClients(basePackages = "br.com.mirante.UpCareBackend")
+@SpringBootApplication
+public class UpCareBackendApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(UpCareBackendApplication.class, args);
+	}
+
+}

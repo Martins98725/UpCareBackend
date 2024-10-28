@@ -1,0 +1,20 @@
+${Ansi.YELLOW}**********************************************************************************************************
+
+${Ansi.RED}  ,--. ,--.       ,-----.                              ,---.         ,--.
+${Ansi.RED}  |  | |  | ,---.'  .--./,--,--.,--.--. ,---. ,-----. /  O  \  ,---. `--'
+${Ansi.RED}  |  | |  || .-. |  |   ' ,-.  ||  .--'| .-. :'-----'|  .-.  || .-. |,--.
+${Ansi.RED}  '  '-'  '| '-' '  '--'\ '-'  ||  |   \   --.       |  | |  || '-' '|  |
+${Ansi.RED}   `-----' |  |-' `-----'`--`--'`--'    `----'       `--' `--'|  |-' `--'
+${Ansi.RED}           `--'                                               `--'
+
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}
+
+
+${Ansi.GREEN} info.build.artifact     : ${info.build.artifact}
+${Ansi.GREEN} info.build.version      : ${info.build.version}
+${Ansi.GREEN} info.build.name         : ${info.build.name}
+${Ansi.GREEN} info.build.description  : ${info.build.description}
+${Ansi.GREEN} spring-boot.version     : ${spring-boot.version}
+
+${Ansi.YELLOW}**********************************************************************************************************

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edu-api-teste
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: upcarebackend-teste
+  template:
+    metadata:
+      labels:
+        app: upcarebackend-teste
+    spec:
+      containers:
+        - name: upcarebackend-teste
+          image: localhost:5000/upcarebackend-teste:1.0
+          ports:
+            - containerPort: 8095
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: upcarebackend-teste
+spec:
+  selector:
+    app: upcarebackend-teste
+  type: LoadBalancer
+  ports:
+    - port: 8095
+      targetPort: 8095
+      nodePort: 32104
