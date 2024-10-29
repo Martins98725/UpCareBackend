@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: edu-api-teste
+  name: upcar-backend-teste
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
         - name: upcarebackend-teste
           image: localhost:5000/upcarebackend-teste:1.0
           ports:
-            - containerPort: 8095
+            - containerPort: 8080
           imagePullPolicy: Always
 ---
 apiVersion: v1
@@ -28,6 +28,6 @@ spec:
     app: upcarebackend-teste
   type: LoadBalancer
   ports:
-    - port: 8095
-      targetPort: 8095
+    - port: 8080
+      targetPort: 8080
       nodePort: 32104

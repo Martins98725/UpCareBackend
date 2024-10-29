@@ -1,4 +1,4 @@
-package br.com.mirante.eduapi.config;
+package br.com.mirante.UpCareBackend.config;
 
 import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
 import org.springframework.context.annotation.Configuration;
