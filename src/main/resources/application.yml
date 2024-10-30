@@ -4,7 +4,7 @@ spring:
   profiles:
     active: '@spring.profiles.active@'
   datasource:
-    url: jdbc:mysql://localhost:3306/mirante-upcare
+    url: jdbc:mysql://144.22.188.2:3306/mirante_upcare
     username: root
     password: 123456
   jpa:
