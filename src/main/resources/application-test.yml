@@ -1,6 +1,9 @@
 ---
 spring:
-  profiles: dev
+  application:
+    name: '@project.artifactId@'
+  profiles:
+    active: '@spring.profiles.active@'
   datasource:
     url: jdbc:h2:mem:upcare
     username: sa
