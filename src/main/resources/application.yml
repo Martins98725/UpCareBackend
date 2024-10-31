@@ -7,6 +7,11 @@ spring:
     url: jdbc:mysql://144.22.188.2:3306/mirante_upcare
     username: root
     password: 123456
+    hikari:
+      data-source-properties:
+        https.proxyHost: proxy.ceuma.edu.br
+        https.proxyPort: 3128
+
   jpa:
     properties:
        hibernate:
