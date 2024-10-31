@@ -1,6 +1,6 @@
 package br.com.mirante.UpCareBackend.repository;
 
-import br.com.mirante.UpCareBackend.models.Usuario;
+import br.com.mirante.UpCareBackend.models.Estacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, UUID>, JpaSpecificationExecutor<Usuario> {
+public interface EstacaoRepository extends JpaRepository<Estacao, UUID>, JpaSpecificationExecutor<Estacao> {
 }
