@@ -34,4 +34,11 @@ public class Estacao {
 
     @Column(name = "STATUS")
     private Status status;
+
+    @PrePersist
+    public void generateUUID() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
+    }
 }

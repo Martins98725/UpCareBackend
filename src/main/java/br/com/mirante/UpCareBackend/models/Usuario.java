@@ -38,4 +38,11 @@ public class Usuario {
 
     @ManyToMany(cascade = CascadeType.ALL)
     List<Role> roles = new ArrayList<>();
+
+    @PrePersist
+    public void generateUUID() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
+    }
 }
