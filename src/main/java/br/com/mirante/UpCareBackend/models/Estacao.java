@@ -1,9 +1,7 @@
 package br.com.mirante.UpCareBackend.models;
 
 import br.com.mirante.UpCareBackend.models.enums.Status;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,7 @@ import java.util.UUID;
 @Entity
 public class Estacao {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "NOME", nullable = false, length = 50)
