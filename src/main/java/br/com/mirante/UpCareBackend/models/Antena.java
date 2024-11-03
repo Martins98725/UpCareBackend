@@ -21,25 +21,39 @@ public class Antena {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(nullable = false, name = "CODIGO", length = 50)
     private String codigo;
 
+    @Column(nullable = false, length = 50,  name = "MARCA")
     private String marca;
 
+    @Column(nullable = false, length = 50, name = "MODELO")
     private String modelo;
 
+    @Column(name = "STATUS")
+    @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(nullable = false, length = 50, name = "VR")
     private double vr;
 
+    @Column(name = "TIPO_ANTENA")
+    @Enumerated(EnumType.STRING)
     private TipoAntena tipoAntena;
 
+    @Column(nullable = false, length = 50, name = "GAIN")
     private String gain;
 
+    @Column(name = "POSICAO_DA_TORRE")
+    @Enumerated(EnumType.STRING)
     private PosicaoDaTorre posicaoDaTorre;
 
+    @Column(name = "CATEGORIA")
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
     @ManyToOne
+    @JoinColumn(name = "estacao_id")
     private Estacao estacao;
 
 

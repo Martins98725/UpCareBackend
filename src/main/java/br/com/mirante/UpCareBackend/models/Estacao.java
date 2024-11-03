@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -34,7 +35,11 @@ public class Estacao {
     private String linkGrafana;
 
     @Column(name = "STATUS")
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    @OneToMany(mappedBy = "estacao",  cascade = CascadeType.ALL)
+    private List<Antena> antenas;
 
     @PrePersist
     public void generateUUID() {
