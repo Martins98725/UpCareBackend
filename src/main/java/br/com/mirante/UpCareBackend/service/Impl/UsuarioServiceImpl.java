@@ -30,9 +30,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public UsuarioDTO create(UsuarioDTO usuarioDTO) throws BusinessException {
         Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOToUsuario(usuarioDTO);
 
-      /*  if (usuarioRepository.existsById(usuario.getId())) {
+        if (usuarioRepository.existsById(usuario.getId())) {
              throw new BusinessException("Usuario já existe");
-        }*/
+        }
 
         usuario = usuarioRepository.save(usuario);
 

@@ -2,6 +2,7 @@ package br.com.mirante.UpCareBackend.service.Impl;
 
 import br.com.mirante.UpCareBackend.dto.AntenaDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
+import br.com.mirante.UpCareBackend.mappers.AntenaMapper;
 import br.com.mirante.UpCareBackend.models.Antena;
 import br.com.mirante.UpCareBackend.repository.AntenaRepository;
 import br.com.mirante.UpCareBackend.service.AntenaService;
@@ -27,22 +28,41 @@ public class AntenaServiceImpl implements AntenaService {
 
     @Override
     public AntenaDTO create(AntenaDTO antenaDTO) throws BusinessException {
+        Antena antena = AntenaMapper.INTANCE.antenaDTOToAntena(antenaDTO);
 
-        return null;
+        //criar validação por codigo
+        if (antenaRepository.existsById(antena.getId())){
+            throw new BusinessException("Antena já existe");
+        }
+
+        antena = antenaRepository.save(antena);
+
+        return AntenaMapper.INTANCE.antenaToAntenaDTO(antena);
     }
 
     @Override
     public Optional<AntenaDTO> findById(UUID id) {
-        return Optional.empty();
+        return antenaRepository.findById(id).map(AntenaMapper.INTANCE::antenaToAntenaDTO);
     }
 
     @Override
     public Optional<AntenaDTO> update(AntenaDTO antenaDTO, UUID id) {
+        if (antenaRepository.existsById(id)){
+            Antena antena = AntenaMapper.INTANCE.antenaDTOToAntena(antenaDTO);
+            antena.setId(id);
+            antena = antenaRepository.save(antena);
+
+            return Optional.of(AntenaMapper.INTANCE.antenaToAntenaDTO(antena));
+        }
         return Optional.empty();
     }
 
     @Override
     public boolean delete(UUID id) {
+        if (antenaRepository.existsById(id)) {
+            antenaRepository.deleteById(id);
+            return true;
+        }
         return false;
     }
 }
