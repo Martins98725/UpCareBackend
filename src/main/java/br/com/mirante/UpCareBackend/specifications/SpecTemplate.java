@@ -1,5 +1,6 @@
 package br.com.mirante.UpCareBackend.specifications;
 
+import br.com.mirante.UpCareBackend.models.Antena;
 import br.com.mirante.UpCareBackend.models.Estacao;
 import br.com.mirante.UpCareBackend.models.Usuario;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
@@ -23,4 +24,11 @@ public class SpecTemplate {
             @Spec(path = "latitude", spec = Equal.class),
     })
     public interface EstacaoSpec extends Specification<Estacao>{}
+
+    @And({
+            @Spec(path = "codigo", spec = Like.class),
+            @Spec(path = "marca", spec = Equal.class),
+            @Spec(path = "modelo", spec = Equal.class),
+    })
+    public interface AntenaSpec extends Specification<Antena> {}
 }
