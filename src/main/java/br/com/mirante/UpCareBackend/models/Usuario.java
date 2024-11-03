@@ -13,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +38,13 @@ public class Usuario {
     private String contatoEmpresa;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    List<Role> roles = new ArrayList<>();
+    @JoinTable(
+            name = "usuario_role",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+
+    )
+    private List<Role> roles = new ArrayList<>();
 
     @PrePersist
     public void generateUUID() {

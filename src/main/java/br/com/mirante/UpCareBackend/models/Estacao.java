@@ -12,6 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table
 public class Estacao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -53,7 +53,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     @Operation(summary = "Buscar Usuarios por ID.", description = "Endpoint para buscar o usuario pelo id.",
             security = {@SecurityRequirement(name = "bearer-key")})
-    public ResponseEntity<UsuarioDTO> getById(@PathVariable("id") UUID id) {
+    public ResponseEntity<UsuarioDTO> getById(@PathVariable UUID id) {
         return usuarioService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
