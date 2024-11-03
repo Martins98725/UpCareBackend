@@ -22,6 +22,6 @@ public class Role {
     private UUID id;
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     List<Usuario> usuarios = new ArrayList<>();
 }

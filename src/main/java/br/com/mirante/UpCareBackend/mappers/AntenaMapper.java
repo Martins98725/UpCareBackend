@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface AntenaMapper {
-    AntenaMapper INTANCE = Mappers.getMapper(AntenaMapper.class);
+    AntenaMapper INSTANCE = Mappers.getMapper(AntenaMapper.class);
 
     AntenaDTO antenaToAntenaDTO(Antena antena);
 

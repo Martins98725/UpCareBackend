@@ -28,7 +28,7 @@ public class AntenaServiceImpl implements AntenaService {
 
     @Override
     public AntenaDTO create(AntenaDTO antenaDTO) throws BusinessException {
-        Antena antena = AntenaMapper.INTANCE.antenaDTOToAntena(antenaDTO);
+        Antena antena = AntenaMapper.INSTANCE.antenaDTOToAntena(antenaDTO);
 
         //criar validação por codigo
         if (antenaRepository.existsById(antena.getId())){
@@ -37,22 +37,22 @@ public class AntenaServiceImpl implements AntenaService {
 
         antena = antenaRepository.save(antena);
 
-        return AntenaMapper.INTANCE.antenaToAntenaDTO(antena);
+        return AntenaMapper.INSTANCE.antenaToAntenaDTO(antena);
     }
 
     @Override
     public Optional<AntenaDTO> findById(UUID id) {
-        return antenaRepository.findById(id).map(AntenaMapper.INTANCE::antenaToAntenaDTO);
+        return antenaRepository.findById(id).map(AntenaMapper.INSTANCE::antenaToAntenaDTO);
     }
 
     @Override
     public Optional<AntenaDTO> update(AntenaDTO antenaDTO, UUID id) {
         if (antenaRepository.existsById(id)){
-            Antena antena = AntenaMapper.INTANCE.antenaDTOToAntena(antenaDTO);
+            Antena antena = AntenaMapper.INSTANCE.antenaDTOToAntena(antenaDTO);
             antena.setId(id);
             antena = antenaRepository.save(antena);
 
-            return Optional.of(AntenaMapper.INTANCE.antenaToAntenaDTO(antena));
+            return Optional.of(AntenaMapper.INSTANCE.antenaToAntenaDTO(antena));
         }
         return Optional.empty();
     }
