@@ -39,15 +39,6 @@ public class Usuario {
     @Column(name = "CONTATO_EMPRESA", nullable = false, length = 15)
     private String contatoEmpresa;
 
-    @ManyToMany
-    @JoinTable(
-            name = "usuario_role",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-
-    )
-    private List<Role> roles = new ArrayList<>();
-
     @PrePersist
     public void generateUUID() {
         if (id == null) {

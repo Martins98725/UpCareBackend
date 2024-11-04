@@ -33,9 +33,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         if (usuarioRepository.findById(usuario.getId()).isPresent()) {
              throw new BusinessException("Usuario já existe");
         }
-
         usuario = usuarioRepository.save(usuario);
         return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
+
     }
 
     @Override
