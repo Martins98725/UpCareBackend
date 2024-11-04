@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface UsuarioService {
     Page<Usuario> findAll(Pageable page, Specification<Usuario> specification);
 
-    UsuarioDTO create(UsuarioDTO usuario) throws BusinessException;
+    UsuarioDTO save(UsuarioDTO usuario) throws BusinessException;
 
     Optional<UsuarioDTO> findById(UUID id);
 

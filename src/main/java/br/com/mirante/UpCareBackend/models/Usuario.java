@@ -1,6 +1,7 @@
 package br.com.mirante.UpCareBackend.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Usuario {
     private String nome;
 
     @Column(name = "EMAIL", nullable = false, length = 50)
+    @Email
     private String email;
 
     @Column(name = "SENHA", nullable = false, length = 15)

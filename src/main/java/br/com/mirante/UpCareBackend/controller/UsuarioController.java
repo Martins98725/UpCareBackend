@@ -46,7 +46,7 @@ public class UsuarioController {
             security = {@SecurityRequirement(name = "bearer-key")})
     public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO usuarioDTO) throws BusinessException {
 
-        UsuarioDTO usuarioSalvo = usuarioService.create(usuarioDTO);
+        UsuarioDTO usuarioSalvo = usuarioService.save(usuarioDTO);
 
         return ResponseEntity.ok(usuarioSalvo);
     }
