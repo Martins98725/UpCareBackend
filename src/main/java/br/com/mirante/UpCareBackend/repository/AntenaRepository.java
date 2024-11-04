@@ -9,4 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface AntenaRepository extends JpaRepository<Antena, UUID>, JpaSpecificationExecutor<Antena> {
+    boolean existsAntenaByCodigo(String codigo);
 }
