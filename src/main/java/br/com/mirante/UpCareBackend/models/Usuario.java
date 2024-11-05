@@ -5,17 +5,19 @@ import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "usuario")
 public class Usuario {
+    private static final Logger logger = LoggerFactory.getLogger(Usuario.class);
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -43,6 +45,7 @@ public class Usuario {
     public void generateUUID() {
         if (id == null) {
             id = UUID.randomUUID();
+            logger.info("UUID generated" + id);
         }
     }
 }
