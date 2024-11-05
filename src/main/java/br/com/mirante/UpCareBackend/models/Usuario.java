@@ -42,7 +42,7 @@ public class Usuario {
     private String contatoEmpresa;
 
     @PrePersist
-    public void generateUUID() {
+    public void generatedUUID() {
         if (id == null) {
             id = UUID.randomUUID();
             logger.info("UUID generated" + id);

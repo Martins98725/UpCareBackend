@@ -29,7 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UsuarioDTO save(UsuarioDTO usuarioDTO) throws BusinessException {
         Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOToUsuario(usuarioDTO);
-        usuario.setId(UUID.randomUUID());
+       /* usuario.setId(UUID.randomUUID());*/
 
         if (usuarioRepository.findById(usuario.getId()).isPresent()) {
              throw new BusinessException("Usuario já existe");
