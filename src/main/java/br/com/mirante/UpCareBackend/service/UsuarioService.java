@@ -1,6 +1,7 @@
 package br.com.mirante.UpCareBackend.service;
 
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
+import br.com.mirante.UpCareBackend.dto.UsuarioDTOPost;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.models.Usuario;
 import org.springframework.data.domain.Page;
@@ -13,7 +14,7 @@ import java.util.UUID;
 public interface UsuarioService {
     Page<Usuario> findAll(Pageable page, Specification<Usuario> specification);
 
-    UsuarioDTO save(UsuarioDTO usuario) throws BusinessException;
+    UsuarioDTOPost save(UsuarioDTOPost usuario) throws BusinessException;
 
     Optional<UsuarioDTO> findById(UUID id);
 

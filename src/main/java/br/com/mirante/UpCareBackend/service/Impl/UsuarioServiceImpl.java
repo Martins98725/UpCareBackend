@@ -1,6 +1,7 @@
 package br.com.mirante.UpCareBackend.service.Impl;
 
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
+import br.com.mirante.UpCareBackend.dto.UsuarioDTOPost;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.UsuarioMapper;
 import br.com.mirante.UpCareBackend.models.Usuario;
@@ -27,18 +28,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioDTO save(UsuarioDTO usuarioDTO) throws BusinessException {
-        Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOToUsuario(usuarioDTO);
-       /* usuario.setId(UUID.randomUUID());*/
+    public UsuarioDTOPost save(UsuarioDTOPost usuarioDTO) throws BusinessException {
+        Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOPostToUsuario(usuarioDTO);
+        /* usuario.setId(UUID.randomUUID());*/
 
       /*  if (usuarioRepository.findById(usuario.getId()).isPresent()) {
              throw new BusinessException("Usuario já existe");
         }*/
-        var teste = UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
-        System.out.println(teste);
+        //var teste = UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
+        //System.out.println(teste);
 
         usuario = usuarioRepository.save(usuario);
-        return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
+        return UsuarioMapper.INSTANCE.usuarioToUsuarioDTOPost(usuario);
 
     }
 

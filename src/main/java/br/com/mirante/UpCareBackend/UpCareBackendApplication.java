@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @OpenAPIDefinition(info = @io.swagger.v3.oas.annotations.info.Info(title = "${info.build.name}", version = "${info.build.version}", description = "${info.app.description}",
@@ -21,7 +22,11 @@ import org.springframework.context.annotation.ComponentScan;
 public class UpCareBackendApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(UpCareBackendApplication.class, args);
+
+		/*ApplicationContext ctx = SpringApplication.run(UpCareBackendApplication.class, args);
+		System.out.println("Bean de UsuarioMapper presente: " + ctx.containsBean("UsuarioMapper"));*/
 	}
 
 }

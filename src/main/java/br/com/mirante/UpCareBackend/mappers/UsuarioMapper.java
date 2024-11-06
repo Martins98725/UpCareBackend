@@ -1,19 +1,21 @@
 package br.com.mirante.UpCareBackend.mappers;
 
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
+import br.com.mirante.UpCareBackend.dto.UsuarioDTOPost;
 import br.com.mirante.UpCareBackend.models.Usuario;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface UsuarioMapper {
     UsuarioMapper INSTANCE = Mappers.getMapper(UsuarioMapper.class);
 
-
     UsuarioDTO usuarioToUsuarioDTO(Usuario usuario);
 
-    @Mapping(target = "id", ignore = true)
     Usuario usuarioDTOToUsuario(UsuarioDTO usuarioDTO);
+
+    UsuarioDTOPost usuarioToUsuarioDTOPost(Usuario usuario);
+
+    Usuario usuarioDTOPostToUsuario(UsuarioDTOPost usuarioDTOPost);
 
 }

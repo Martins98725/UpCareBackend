@@ -1,6 +1,7 @@
 package br.com.mirante.UpCareBackend.controller;
 
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
+import br.com.mirante.UpCareBackend.dto.UsuarioDTOPost;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.UsuarioMapper;
 import br.com.mirante.UpCareBackend.models.Usuario;
@@ -44,9 +45,9 @@ public class UsuarioController {
     @PostMapping("/")
     @Operation(summary = "Cadastro de Usuarios.", description = "Endpoint para cadastrar Usuarios.",
             security = {@SecurityRequirement(name = "bearer-key")})
-    public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioDTO usuarioDTO) throws BusinessException {
+    public ResponseEntity<UsuarioDTOPost> create(@RequestBody UsuarioDTOPost usuarioDTO) throws BusinessException {
 
-        UsuarioDTO usuarioSalvo = usuarioService.save(usuarioDTO);
+        UsuarioDTOPost usuarioSalvo = usuarioService.save(usuarioDTO);
 
         return ResponseEntity.ok(usuarioSalvo);
     }

@@ -1,6 +1,7 @@
 package br.com.mirante.UpCareBackend;
 
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
+import br.com.mirante.UpCareBackend.dto.UsuarioDTOPost;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.models.Usuario;
 import br.com.mirante.UpCareBackend.repository.UsuarioRepository;
@@ -48,7 +49,7 @@ public class UsuarioTestService {
         when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuario);
 
         // Chama o metodo a ser testado
-        usuarioService.save(new UsuarioDTO());
+        usuarioService.save(new UsuarioDTOPost());
 
         // Verifica se o método save foi chamado no repositório
         verify(usuarioRepository).save(any(Usuario.class));
