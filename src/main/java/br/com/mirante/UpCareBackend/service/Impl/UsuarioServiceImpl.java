@@ -31,9 +31,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOToUsuario(usuarioDTO);
        /* usuario.setId(UUID.randomUUID());*/
 
-        if (usuarioRepository.findById(usuario.getId()).isPresent()) {
+      /*  if (usuarioRepository.findById(usuario.getId()).isPresent()) {
              throw new BusinessException("Usuario já existe");
-        }
+        }*/
+        var teste = UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
+        System.out.println(teste);
 
         usuario = usuarioRepository.save(usuario);
         return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);

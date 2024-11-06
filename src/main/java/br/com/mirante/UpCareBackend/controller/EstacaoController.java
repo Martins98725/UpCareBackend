@@ -60,6 +60,7 @@ public class EstacaoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
     @Operation(summary = "Atualizar estações por ID.", description = "Endpoint para atualizar a estação pelo id.",
             security = {@SecurityRequirement(name = "bearer-key")})
     public ResponseEntity<EstacaoDTO> update(@RequestBody EstacaoDTO estacaoDTO, @PathVariable UUID id){
