@@ -30,15 +30,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UsuarioDTOPost save(UsuarioDTOPost usuarioDTO) throws BusinessException {
         Usuario usuario = UsuarioMapper.INSTANCE.usuarioDTOPostToUsuario(usuarioDTO);
-        /* usuario.setId(UUID.randomUUID());*/
-
-      /*  if (usuarioRepository.findById(usuario.getId()).isPresent()) {
-             throw new BusinessException("Usuario já existe");
-        }*/
-        //var teste = UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
-        //System.out.println(teste);
 
         usuario = usuarioRepository.save(usuario);
+
+
         return UsuarioMapper.INSTANCE.usuarioToUsuarioDTOPost(usuario);
 
     }
