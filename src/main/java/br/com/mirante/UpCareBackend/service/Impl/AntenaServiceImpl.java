@@ -30,9 +30,6 @@ public class AntenaServiceImpl implements AntenaService {
     public AntenaDTO create(AntenaDTO antenaDTO) throws BusinessException {
         Antena antena = AntenaMapper.INSTANCE.antenaDTOToAntena(antenaDTO);
 
-        if (antenaRepository.existsById(antena.getId())){
-            throw new BusinessException("Antena já existe");
-        }
 
         if (antenaRepository.existsAntenaByCodigo(antena.getCodigo())){
             throw new BusinessException("Antena já existe");

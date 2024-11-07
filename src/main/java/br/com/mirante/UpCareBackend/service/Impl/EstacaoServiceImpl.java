@@ -31,9 +31,6 @@ public class EstacaoServiceImpl implements EstacaoService {
     public EstacaoDTO create(EstacaoDTO estacaoDTO) throws BusinessException {
         Estacao estacao = EstacaoMapper.INSTANCE.estacaoDTOToEstacao(estacaoDTO);
 
-        if (estacaoRepository.existsById(estacao.getId())){
-            throw new BusinessException("Estação ja existe");
-        }
 
         estacao = estacaoRepository.save(estacao);
 
