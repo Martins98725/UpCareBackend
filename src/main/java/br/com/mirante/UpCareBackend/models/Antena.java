@@ -56,6 +56,10 @@ public class Antena {
     @JoinColumn(name = "estacao_id")
     private Estacao estacao;
 
+    @ManyToOne
+    @JoinColumn(name = "TRANSMISSOR_ID")
+    private Transmissor transmissor;
+
 
     @PrePersist
     public void generateUUID() {
