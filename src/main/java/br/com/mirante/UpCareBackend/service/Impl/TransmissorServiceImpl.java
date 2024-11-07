@@ -4,6 +4,7 @@ import br.com.mirante.UpCareBackend.dto.TrasnmissorDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.models.Transmissor;
 import br.com.mirante.UpCareBackend.service.TrasnmissorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
