@@ -1,9 +1,6 @@
 package br.com.mirante.UpCareBackend.specifications;
 
-import br.com.mirante.UpCareBackend.models.Antena;
-import br.com.mirante.UpCareBackend.models.Estacao;
-import br.com.mirante.UpCareBackend.models.Transmissor;
-import br.com.mirante.UpCareBackend.models.Usuario;
+import br.com.mirante.UpCareBackend.models.*;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
@@ -39,4 +36,11 @@ public class SpecTemplate {
             @Spec(path = "modelo", spec = Equal.class),
     })
     public interface TransmissorSpec extends Specification<Transmissor>{}
+
+    @And({
+            @Spec(path = "codigo", spec = Like.class),
+            @Spec(path = "marca", spec = Equal.class),
+            @Spec(path = "modelo", spec = Equal.class),
+    })
+    public interface ParabolicaSpec extends Specification<Parabolica>{}
 }
