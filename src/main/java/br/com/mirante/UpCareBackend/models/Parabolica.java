@@ -1,9 +1,7 @@
 package br.com.mirante.UpCareBackend.models;
 
 import br.com.mirante.UpCareBackend.models.enums.Categoria;
-import br.com.mirante.UpCareBackend.models.enums.PosicaoDaTorre;
 import br.com.mirante.UpCareBackend.models.enums.Status;
-import br.com.mirante.UpCareBackend.models.enums.TipoAntena;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
-public class Antena {
+@Table(name = "PARABOLICA")
+public class Parabolica {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -30,39 +28,26 @@ public class Antena {
     @Column(nullable = false, length = 50, name = "MODELO")
     private String modelo;
 
+    @Column(name = "CATEGORIA")
+    @Enumerated(EnumType.STRING)
+    private Categoria categoria;
+
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(nullable = false, length = 50, name = "VR")
-    private double vr;
+    @Column(nullable = false, length = 50, name = "DIAMETRO")
+    private float diametro;
 
-    @Column(name = "TIPO_ANTENA")
-    @Enumerated(EnumType.STRING)
-    private TipoAntena tipoAntena;
-
-    @Column(nullable = false, length = 50, name = "GAIN")
-    private String gain;
-
-    @Column(name = "POSICAO_DA_TORRE")
-    @Enumerated(EnumType.STRING)
-    private PosicaoDaTorre posicaoDaTorre;
-
-    @Column(name = "CATEGORIA")
-    @Enumerated(EnumType.STRING)
-    private Categoria categoria;
+    @Column(nullable = false, length = 50, name = "SATELITE")
+    private String satelite;
 
     @ManyToOne
     @JoinColumn(name = "ESTACAO_ID")
     private Estacao estacao;
 
-    @ManyToOne
-    @JoinColumn(name = "TRANSMISSOR_ID")
-    private Transmissor transmissor;
-
-
     @PrePersist
-    public void generateUUID() {
+    public void generatedUUID() {
         if (id == null) {
             id = UUID.randomUUID();
         }

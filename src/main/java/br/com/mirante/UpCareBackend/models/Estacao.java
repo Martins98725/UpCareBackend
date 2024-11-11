@@ -44,6 +44,9 @@ public class Estacao {
     @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
     private List<Transmissor> transmissors;
 
+    @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
+    private List<Parabolica> parabolicas;
+
     @PrePersist
     public void generateUUID() {
         if (id == null) {
