@@ -13,11 +13,11 @@ import java.util.UUID;
 public interface ParabolicaService {
     Page<Parabolica> findAll(Pageable page, Specification<Parabolica> specification);
 
-    ParabolicaDTO save(ParabolicaDTO trasnmissorDTO) throws BusinessException;
+    ParabolicaDTO save(ParabolicaDTO parabolicaDTO) throws BusinessException;
 
     Optional<ParabolicaDTO> findById(UUID id);
 
-    Optional<ParabolicaDTO> update(UUID id, ParabolicaDTO trasnmissorDTO);
+    Optional<ParabolicaDTO> update(UUID id, ParabolicaDTO parabolicaDTO);
 
     boolean delete(UUID id);
 }
