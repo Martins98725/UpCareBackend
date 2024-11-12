@@ -43,4 +43,11 @@ public class SpecTemplate {
             @Spec(path = "modelo", spec = Equal.class),
     })
     public interface ParabolicaSpec extends Specification<Parabolica>{}
+
+    @And({
+            @Spec(path = "codigo", spec = Like.class),
+            @Spec(path = "marca", spec = Equal.class),
+            @Spec(path = "modelo", spec = Equal.class),
+    })
+    public interface NobeakSpec extends Specification<Nobeak>{}
 }
