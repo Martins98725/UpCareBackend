@@ -16,17 +16,13 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EstacaoDTO {
+public class EstacaoDTOGet {
     private UUID id;
     private String nome;
     private double longitude;
     private double latitude;
     private String endereco;
     private String linkGrafana;
-    private Status status;
-    private List<Antena> antenas = new ArrayList<>();
-    private List<Transmissor> transmissors = new ArrayList<>();
-    private List<Parabolica> parabolicas = new ArrayList<>();
-    private List<Combinador> combinadors = new ArrayList<>();
+    private Status status;;
 
 }

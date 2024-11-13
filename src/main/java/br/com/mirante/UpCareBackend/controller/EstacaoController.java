@@ -1,6 +1,8 @@
 package br.com.mirante.UpCareBackend.controller;
 
 import br.com.mirante.UpCareBackend.dto.EstacaoDTO;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOGet;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOPost;
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.EstacaoMapper;
@@ -45,16 +47,17 @@ public class EstacaoController {
     @PostMapping("/")
     @Operation(summary = "Cadastro de estações.", description = "Endpoint para cadastrar estações.",
             security = {@SecurityRequirement(name = "bearer-key")})
-    public ResponseEntity<EstacaoDTO> create(@RequestBody EstacaoDTO estacaoDTO) throws BusinessException {
-        EstacaoDTO estacaoSalva = estacaoService.create(estacaoDTO);
+    public ResponseEntity<EstacaoDTOPost> create(@RequestBody EstacaoDTOPost estacaoDTO) throws BusinessException {
+        EstacaoDTOPost estacaoSalva = estacaoService.create(estacaoDTO);
 
+        //fazer verificação e ver como definir status
         return ResponseEntity.ok(estacaoSalva);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Buscar estações por ID.", description = "Endpoint para buscar a estação pelo id.",
             security = {@SecurityRequirement(name = "bearer-key")})
-    public ResponseEntity<EstacaoDTO> getById(@PathVariable UUID id){
+    public ResponseEntity<EstacaoDTOGet> getById(@PathVariable UUID id){
         return estacaoService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

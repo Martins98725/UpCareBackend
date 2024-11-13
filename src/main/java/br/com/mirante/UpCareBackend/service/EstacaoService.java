@@ -1,6 +1,8 @@
 package br.com.mirante.UpCareBackend.service;
 
 import br.com.mirante.UpCareBackend.dto.EstacaoDTO;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOGet;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOPost;
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.models.Estacao;
@@ -14,9 +16,9 @@ import java.util.UUID;
 public interface EstacaoService {
     Page<Estacao> findAll(Pageable page, Specification<Estacao> spec);
 
-    EstacaoDTO create(EstacaoDTO estacaoDTO) throws BusinessException;
+    EstacaoDTOPost create(EstacaoDTOPost estacaoDTO) throws BusinessException;
 
-    Optional<EstacaoDTO> findById(UUID id);
+    Optional<EstacaoDTOGet> findById(UUID id);
 
     Optional<EstacaoDTO> update(EstacaoDTO estacaoDTO, UUID id);
 

@@ -1,6 +1,8 @@
 package br.com.mirante.UpCareBackend.service.Impl;
 
 import br.com.mirante.UpCareBackend.dto.EstacaoDTO;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOGet;
+import br.com.mirante.UpCareBackend.dto.EstacaoDTOPost;
 import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.EstacaoMapper;
@@ -28,18 +30,18 @@ public class EstacaoServiceImpl implements EstacaoService {
     }
 
     @Override
-    public EstacaoDTO create(EstacaoDTO estacaoDTO) throws BusinessException {
-        Estacao estacao = EstacaoMapper.INSTANCE.estacaoDTOToEstacao(estacaoDTO);
+    public EstacaoDTOPost create(EstacaoDTOPost estacaoDTO) throws BusinessException {
+        Estacao estacao = EstacaoMapper.INSTANCE.estacaoDTOPostToEstacao(estacaoDTO);
 
 
         estacao = estacaoRepository.save(estacao);
 
-        return EstacaoMapper.INSTANCE.estacaoToEstacaoDTO(estacao);
+        return EstacaoMapper.INSTANCE.estacaoToEstacaoDTOPost(estacao);
     }
 
     @Override
-    public Optional<EstacaoDTO> findById(UUID id) {
-        return estacaoRepository.findById(id).map(EstacaoMapper.INSTANCE::estacaoToEstacaoDTO);
+    public Optional<EstacaoDTOGet> findById(UUID id) {
+        return estacaoRepository.findById(id).map(EstacaoMapper.INSTANCE::estacaoToEstacaoDTOGet);
     }
 
     @Override
