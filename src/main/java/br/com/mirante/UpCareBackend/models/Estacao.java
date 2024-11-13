@@ -47,6 +47,9 @@ public class Estacao {
     @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
     private List<Parabolica> parabolicas;
 
+    @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
+    private List<Combinador> combinadors;
+
     @PrePersist
     public void generateUUID() {
         if (id == null) {
