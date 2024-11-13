@@ -11,5 +11,5 @@ public interface CombinadorMapper {
 
     CombinadorDTO combinadorToCombinadorDTO(Combinador combinador);
 
-    Combinador combinadorDTOToCombinador(CombinadorDTO);
+    Combinador combinadorDTOToCombinador(CombinadorDTO combinadorDTO);
 }
