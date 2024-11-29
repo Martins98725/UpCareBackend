@@ -32,6 +32,10 @@ public class Exaustor {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @ManyToOne
+    @JoinColumn(name = "ESTACAOID")
+    private Estacao estacao;
+
     @PrePersist
     public void generateUUID() {
         if (id == null) {

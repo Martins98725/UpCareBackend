@@ -50,6 +50,9 @@ public class Estacao {
     @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
     private List<Combinador> combinadors;
 
+    @OneToMany(mappedBy = "estacao", cascade = CascadeType.ALL)
+    private List<Exaustor> exaustors;
+
     @PrePersist
     public void generateUUID() {
         if (id == null) {
