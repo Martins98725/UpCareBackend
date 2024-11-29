@@ -30,7 +30,7 @@ public class EstacaoServiceImpl implements EstacaoService {
     }
 
     @Override
-    public EstacaoDTOPost create(EstacaoDTOPost estacaoDTO) throws BusinessException {
+    public EstacaoDTOPost save(EstacaoDTOPost estacaoDTO) throws BusinessException {
         Estacao estacao = EstacaoMapper.INSTANCE.estacaoDTOPostToEstacao(estacaoDTO);
 
 

@@ -46,7 +46,7 @@ public class AntenaController {
             security = {@SecurityRequirement(name = "bearer-key")})
     public ResponseEntity<AntenaDTO> create(@RequestBody AntenaDTO antenaDTO) throws BusinessException {
 
-        AntenaDTO antenaSalva = antenaService.create(antenaDTO);
+        AntenaDTO antenaSalva = antenaService.save(antenaDTO);
 
         return ResponseEntity.ok(antenaSalva);
     }

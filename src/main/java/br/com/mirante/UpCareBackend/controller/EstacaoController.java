@@ -3,7 +3,6 @@ package br.com.mirante.UpCareBackend.controller;
 import br.com.mirante.UpCareBackend.dto.EstacaoDTO;
 import br.com.mirante.UpCareBackend.dto.EstacaoDTOGet;
 import br.com.mirante.UpCareBackend.dto.EstacaoDTOPost;
-import br.com.mirante.UpCareBackend.dto.UsuarioDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.EstacaoMapper;
 import br.com.mirante.UpCareBackend.models.Estacao;
@@ -48,7 +47,7 @@ public class EstacaoController {
     @Operation(summary = "Cadastro de estações.", description = "Endpoint para cadastrar estações.",
             security = {@SecurityRequirement(name = "bearer-key")})
     public ResponseEntity<EstacaoDTOPost> create(@RequestBody EstacaoDTOPost estacaoDTO) throws BusinessException {
-        EstacaoDTOPost estacaoSalva = estacaoService.create(estacaoDTO);
+        EstacaoDTOPost estacaoSalva = estacaoService.save(estacaoDTO);
 
         //fazer verificação e ver como definir status
         return ResponseEntity.ok(estacaoSalva);

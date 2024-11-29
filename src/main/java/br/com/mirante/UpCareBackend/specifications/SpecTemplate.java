@@ -57,4 +57,11 @@ public class SpecTemplate {
             @Spec(path = "modelo", spec = Equal.class),
     })
     public interface CombinadorSpec extends Specification<Combinador>{}
+
+    @And({
+            @Spec(path = "codigo", spec = Like.class),
+            @Spec(path = "marca", spec = Equal.class),
+            @Spec(path = "modelo", spec = Equal.class),
+    })
+    public interface ExaustorSpec extends Specification<Exaustor>{}
 }

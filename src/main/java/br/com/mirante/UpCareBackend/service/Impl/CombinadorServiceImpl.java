@@ -26,7 +26,7 @@ public class CombinadorServiceImpl implements CombinadorService {
     }
 
     @Override
-    public CombinadorDTO create(CombinadorDTO combinadorDTO) throws BusinessException {
+    public CombinadorDTO save(CombinadorDTO combinadorDTO) throws BusinessException {
         Combinador combinador = CombinadorMapper.INSTANCE.combinadorDTOToCombinador(combinadorDTO);
 
         combinador = combinadorRepository.save(combinador);

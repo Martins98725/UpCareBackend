@@ -27,7 +27,7 @@ public class AntenaServiceImpl implements AntenaService {
     }
 
     @Override
-    public AntenaDTO create(AntenaDTO antenaDTO) throws BusinessException {
+    public AntenaDTO save(AntenaDTO antenaDTO) throws BusinessException {
         Antena antena = AntenaMapper.INSTANCE.antenaDTOToAntena(antenaDTO);
 
 

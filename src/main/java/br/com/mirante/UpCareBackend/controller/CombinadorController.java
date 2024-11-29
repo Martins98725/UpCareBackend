@@ -1,7 +1,6 @@
 package br.com.mirante.UpCareBackend.controller;
 
 import br.com.mirante.UpCareBackend.dto.CombinadorDTO;
-import br.com.mirante.UpCareBackend.dto.EstacaoDTO;
 import br.com.mirante.UpCareBackend.exceptions.BusinessException;
 import br.com.mirante.UpCareBackend.mappers.CombinadorMapper;
 import br.com.mirante.UpCareBackend.models.Combinador;
@@ -44,7 +43,7 @@ public class CombinadorController {
     @Operation(summary = "Cadastro de combinadores.", description = "Endpoint para cadastrar combinadores.",
             security = {@SecurityRequirement(name = "bearer-key")})
     public ResponseEntity<CombinadorDTO> create(@RequestBody CombinadorDTO combinadorDTO) throws BusinessException {
-        CombinadorDTO combinadorSalvo = combinadorService.create(combinadorDTO);
+        CombinadorDTO combinadorSalvo = combinadorService.save(combinadorDTO);
 
         return ResponseEntity.ok(combinadorSalvo);
     }
